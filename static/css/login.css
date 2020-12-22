@@ -1,0 +1,294 @@
+body{
+    background: radial-gradient(circle
+     at center, rgb(29, 184, 211),  rgb(22, 154, 187));
+    padding: 0px 0;
+  
+  }
+.error{
+    color: red;
+}
+  .card{
+    box-shadow: 0 0 20px  rgb(0, 0, 0, 0.3);
+    transition: 0.3s;
+    width: 450px;
+    height: 520px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+      /* position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 30px;
+    transform: translate(-50%, -50%);
+    margin: -70px 0 0 -170px; */
+    font-family: 'Raleway', sans-serif;
+  
+    }
+    .cardReg{
+        box-shadow: 0 0 20px  rgb(0, 0, 0, 0.3);
+        transition: 0.3s;
+        width: 400px;
+        height: 480px;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+          /* position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 30px;
+        transform: translate(-50%, -50%);
+        margin: -70px 0 0 -170px; */
+        font-family: 'Raleway', sans-serif;
+      
+        }
+    .main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 30px;
+        transform: translate(-50%, -70%);
+    }
+    .dashboardMain{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        margin-top: 30px;
+        transform: translate(-50%, -70%);
+    }
+   
+  
+  #inputField{
+    margin: 20px 0px;
+    
+  }
+  
+  
+  .field__input{ 
+    --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+    
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+  
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  .field__input:focus::-webkit-input-placeholder{
+    color: var(--uiFieldPlaceholderColor);
+  }
+  
+  .field__input:focus::-moz-placeholder{
+    color: var(--uiFieldPlaceholderColor);
+  }
+  
+  .field{
+    --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+    --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);   
+    --uiFieldBorderColorActive: var(--fieldBorderColorActive, rgba(22, 22, 22, 1));
+  
+    display: var(--fieldDisplay, inline-flex);
+    position: relative;
+    font-size: var(--fieldFontSize, 1rem);
+  }
+  
+  .field__input{
+    box-sizing: border-box;
+    width: var(--fieldWidth, 100%);
+    /* height: var(--fieldHeight, 3rem); */
+    padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);
+    border-bottom: var(--uiFieldBorderWidth) solid var(--fieldBorderColor, rgba(0, 0, 0, .25));  
+  }
+  
+  .field__input:focus{
+    outline: none;
+  }
+  
+  .field__input::-webkit-input-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;
+  }
+  
+  .field__input::-moz-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;
+  }
+  
+  .field__input:focus::-webkit-input-placeholder{
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  
+  .field__input:focus::-moz-placeholder{
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  
+  .field__label-wrap{
+    box-sizing: border-box;
+    pointer-events: none;
+    cursor: text;
+  
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .field__label-wrap::after{
+    content: "";
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+  
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .field__input:focus ~ .field__label-wrap::after{
+    opacity: 1;
+  }
+  
+  .field__label{
+    position: absolute;
+    left: var(--uiFieldPaddingLeft);
+    top: calc(50% - .5em);
+  
+    line-height: 1;
+    font-size: var(--fieldHintFontSize, inherit);
+  
+    transition: top .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out, font-size .2s ease-out;
+    will-change: bottom, opacity, font-size;
+  }
+  
+  .field__input:focus ~ .field__label-wrap .field__label,
+  .field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label{
+    --fieldHintFontSize: var(--fieldHintFontSizeFocused, .75rem);
+  
+    top: var(--fieldHintTopHover, .25rem);
+  }
+  
+  
+  .field_v1 .field__label-wrap::after{
+    border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transition: opacity .2s ease-out;
+    will-change: opacity;
+  }
+  
+  
+  
+  
+  .field{
+    --fieldBorderColor: rgb(121, 199, 212);
+    --fieldBorderColorActive: rgb(24, 141, 170);
+  }
+  
+  #logHeading{
+    font-size: 250%;
+    padding-top:50px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+  }
+  
+  input[type=submit] {
+              background-color: rgb(56,184,211);
+              border: none;
+              text-decoration: none;
+              color: white;
+              padding: 10px 25px;
+              margin: 0px 20px;
+              cursor: pointer;
+  }
+  #logo{
+    font-size: 400%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    /* padding-bottom: 50px; */
+    text-align: center;
+  }
+
+
+.editNote{
+    float: right;
+}
+.viewNote{
+    float: right;
+}
+.deleteNote{
+    float: right;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(172, 172, 172);
+  }
+tr:nth-child(odd) {
+   background-color: rgb(255, 255, 255);
+}
+table{
+    width: 100%;
+    height: 100px;
+}
+tr{
+    height: 40px !important;
+}
+table, th, td{
+    border: 0px;
+    border-spacing: 0px;
+}
+table{
+    width: 400px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+ tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 200px;
+}
+#name{
+    width: 300px;
+}
+#editButton{
+    width: 100px;
+}
+#viewButton{
+    width: 100px;
+
+}
+#delButton{
+    width: 100px;
+
+}
+
+#noteTitle{
+    padding-top: 30px;
+}
+#cancelView{
+    align-self: flex-end;
+}
+#mytext{
+    height: 150px;
+    font-size: 20px;
+}
+#viewTitle{
+    height: 50px;
+}
+textarea{
+    resize: none;
+}
+#no{
+    margin-bottom: 10px;
+}
+
+#editForm{
+    padding: 0;
+}

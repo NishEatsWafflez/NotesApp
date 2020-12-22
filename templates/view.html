@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class ="main">
+    <div class = "card">
+    <h1 id = "noteTitle">Note:</h1>
+    <h1 id = "viewTitle">{{note.title}}</h1>
+    <h3 id = "mytext">{{text}}</h3>
+    <p>{{note.time}}</p>
+    <input type = "button" id = "cancelView" onclick = "cancel()"value = "Cancel" class = "btn">
+</div>
+</div>
+    <script>
+        function cancel(){
+        window.location.href = "/dashboard"
+    }
+    </script>
+
+   
+{% endblock %}

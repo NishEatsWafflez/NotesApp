@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "main">
+    <h1 id = "logo">Noteably</h1>
+      <div class="card">
+          <h1 id = "logHeading">Log In</h1>
+          <form name = "login_form">
+    <label class="field field_v1" for = "email" id = "inputField">
+      <input class="field__input" name = "email" placeholder=" " style="width: 300px;" required>
+      <span class="field__label-wrap">
+        <span class="field__label">Email</span>
+      </span>
+    </label>
+    <br>
+      <label class="field field_v1" for = "password" id = "inputField" >
+      <input type = "password" class="field__input" name = "password" placeholder=" " style="width: 300px; " required>
+      <span class="field__label-wrap">
+        <span type = "password"class="field__label" >Password</span>
+      </span>
+    </label>
+    <br>
+    <p class = "error" style="margin-top: 20px;">
+            
+    </p>
+    <input type = "submit" style="width: 300px; font-size: medium; margin-top: 20px;" value = "Enter">
+          <!-- <label for="name" id = "inputField">Name</label>
+          <br>
+          <input type="text" id = "inputField" name="name" id="name">
+          <br>
+          <label for="name" id = "inputField">Name</label>
+          <br>
+          <input type="text" id = "inputField" name="name" id="name"> -->
+        </form>
+      <p style = "margin-top: 25px;">Don't have an account? <a href = "/register">Sign up!</a></p>
+      </div>
+  </div>
+{% endblock %}

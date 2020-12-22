@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "dashboardMain">
+    <h1>DASHBOARD</h1>
+    <p> You are logged in</p>
+
+    <a href = "/user/signout" class = "btn">Sign out</a>
+
+
+    <p>
+        <strong>Name: </strong> {{ session['user']['name']}}
+        <strong>Email: </strong> {{ session['user']['email']}}
+    </p>
+    <table style = "width: 100%">
+        {% for count, name in notes %}
+        <tr>
+            <td id = "name">{{name}} </td> <td id = "editButton"><button class = "editNote" id = {{count}} onclick = "editNote(this.id)">Edit</button></td> <td id = "editButton"><button class = "viewNote" id = {{count}} onclick = "viewNote(this.id)">View</button></td> <td id = "editButton"> <button class = "deleteNote" id = {{count}} onclick = "sendId(this.id)"   >DELETE</button> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h1>Create new note</h1>
+    <form hidden id = "no" name="new_note">
+        <label for = "title">Title</label>
+        <input  type="text" name = "title" required>
+
+        <label for = "text">Text</label>
+        <textarea  name = "text" rows =5 cols = 50 required></textarea>
+
+        <p class = "error">
+            
+        </p>
+
+        <input type="submit" value = "Create" class = "btn">
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+
+    
+    </form>
+
+ 
+<button class="open-button" id = "opener" onclick="openForm()">Open Form</button>
+</div>
+<!-- 
+<div class="form-popup" id="myForm">
+  <form hidden id = "no" action="/action_page.php" class="form-container">
+    <h1 id = "no">Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div> -->
+
+<script>
+     $('.delete').on('click', function(){
+      $(this).parent().remove();
+    //   alert("hi")
+    });
+function editNote(noteId) {
+    var data = {"info": noteId};
+
+    $.ajax({
+       url: "/editing",
+       type: "GET",
+       data: data,
+       dataType: "json",
+       success: function(resp){
+           window.location.href = "/edit/";
+       }
+    });
+}
+function viewNote(noteId) {
+    var data = {"info": noteId};
+
+    $.ajax({
+       url: "/editing",
+       type: "GET",
+       data: data,
+       dataType: "json",
+       success: function(resp){
+           window.location.href = "/view/";
+       }
+    });
+}
+function sendId(dab) {
+    var data = {"info":dab};
+    
+    $.ajax({
+        url: "/delete",
+        type: "GET",
+        data: data,
+        dataType: "json",
+        success: function(resp){
+            window.location.href = "/dashboard/";
+            // alert(resp);
+
+        },
+    });
+}
+function openForm() {
+  document.getElementById("no").style.display = "block";
+  document.getElementById("opener").style.display = "none";
+
+}
+
+function closeForm() {
+  document.getElementById("no").style.display = "none";
+  document.getElementById("opener").style.display = "block";
+
+}
+</script>
+
+{% endblock %}
