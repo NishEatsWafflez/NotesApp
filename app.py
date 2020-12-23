@@ -19,6 +19,7 @@ from dotenv import load_dotenv, find_dotenv
 app = Flask(__name__)
 app.secret_key = b'\xc5\x19\xb95\x91L\x9e\x83\xa5\xd5\xad)\xd0\x8f\x02w'
 texts = {}
+info = {}
 load_dotenv(find_dotenv())
 
 MONGO = os.getenv("MONGO")
@@ -60,12 +61,18 @@ def dashboard():
 
     f = Fernet(key)
     for note in notes:
+        infos = []
+        infos.append(note['title'])
         # print(type(note['text']))
         b = note['text'].encode('utf-8')
         # print(type(b"hi"))
         note['text'] = f.decrypt(b)
-        # print(note['text'])
-        texts[note['_id']]= note['title']
+        infos.append(note['text'])
+                # print(note['text'])
+        texts[note['_id']]= infos
+        # print (infos.keys())
+        # print(infos)
+        # info.pop(note['title'])
         # print(notes)
 
         # print(1)
@@ -79,7 +86,7 @@ def dashboard():
         check = notesDB.find_one({'_id':x})
         if check['email'] != session['user']['email']:
             texts.pop(x)
-
+    print (texts)
     # print(texts.keys())
     return render_template('dashboard.html', notes=texts.items())
     # return render_template('dashboard.html')
@@ -89,6 +96,7 @@ def register():
     return render_template('home.html')
 
 @app.route('/edit/')
+@login_required
 def edit():
     password = session['key'].encode()  # Convert to type bytes
     salt = b'\xb7\xe799d\x8864\xf9\xa4P\xea\x15\xb3\x8e)'
@@ -108,10 +116,11 @@ def edit():
     session['chosenNote']['text'] = f.decrypt(b)
     text = session['chosenNote']['text']
     # print(note['text'])
-    print(session['chosenNote']['text'])
+    # print(session['chosenNote']['text'])
     return render_template('edit.html', note = session['chosenNote'], text = text)
 
 @app.route('/view/')
+@login_required
 def view():
     password = session['key'].encode()  # Convert to type bytes
     salt = b'\xb7\xe799d\x8864\xf9\xa4P\xea\x15\xb3\x8e)'
@@ -131,5 +140,5 @@ def view():
     session['chosenNote']['text'] = f.decrypt(b)
     text = session['chosenNote']['text']
     # print(note['text'])
-    print(session['chosenNote'])
+    # print(session['chosenNote'])
     return render_template('view.html', note = session['chosenNote'], text = text)

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class = "dashboardMain">
+<div class = "">
     <h1>DASHBOARD</h1>
     <p> You are logged in</p>
 
@@ -12,13 +12,15 @@
         <strong>Name: </strong> {{ session['user']['name']}}
         <strong>Email: </strong> {{ session['user']['email']}}
     </p>
-    <table style = "width: 100%">
+    <div class = "flexer">
         {% for count, name in notes %}
-        <tr>
-            <td id = "name">{{name}} </td> <td id = "editButton"><button class = "editNote" id = {{count}} onclick = "editNote(this.id)">Edit</button></td> <td id = "editButton"><button class = "viewNote" id = {{count}} onclick = "viewNote(this.id)">View</button></td> <td id = "editButton"> <button class = "deleteNote" id = {{count}} onclick = "sendId(this.id)"   >DELETE</button> </td>
-        </tr>
+        <div id = "postIt" class = "card notes">
+            <h1 id = "nameDash">{{name[0]}} </h1> 
+            <h3 id = "previewText">{{name[1]}}</h3>
+            <button class = "editNote" id = {{count}} onclick = "editNote(this.id)">Edit</button><button class = "viewNote" id = {{count}} onclick = "viewNote(this.id)">View</button><button class = "deleteNote" id = {{count}} onclick = "sendId(this.id)"   >DELETE</button>
+        </div>
         {% endfor %}
-    </table>
+    </div>
     <h1>Create new note</h1>
     <form hidden id = "no" name="new_note">
         <label for = "title">Title</label>
