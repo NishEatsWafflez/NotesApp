@@ -26,7 +26,10 @@ MONGO = os.getenv("MONGO")
 client = MongoClient(MONGO)
 db = client.get_database('loginInfo')
 records = db.login_db
+print(records)
 notesDB = db.notes_db
+user = records.find_one({'email': 'aa'})
+print(user)
 
 def login_required(f):
     @wraps(f)

@@ -1,0 +1,22 @@
+#previewText{
+    height: 145px;
+    max-height: 240px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* number of lines to show */
+    -webkit-box-orient: vertical;    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    margin: auto;
+    margin-top: 10px;
+    width: 250px !important;
+}
+#nameDash{
+    margin-bottom: 0px;
+ 
+        /* width: 300px; */
+        text-align: center;
+        font-size: 36px;
+    
+}
