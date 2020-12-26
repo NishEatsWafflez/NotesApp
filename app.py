@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, session
 from functools import wraps
-from bson.objectid import ObjectId
-import dns
+# from bson.objectid import ObjectId
+# import dns
 import os
 import pymongo
 from pymongo import MongoClient
@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.secret_key = b'\xc5\x19\xb95\x91L\x9e\x83\xa5\xd5\xad)\xd0\x8f\x02w'
 texts = {}
 info = {}
-load_dotenv(find_dotenv())
+# load_dotenv(find_dotenv())
 
 MONGO = os.getenv("MONGO")
 client = MongoClient(MONGO)

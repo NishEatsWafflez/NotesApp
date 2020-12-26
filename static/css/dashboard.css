@@ -11,6 +11,7 @@
     margin: auto;
     margin-top: 10px;
     width: 250px !important;
+    /* display: inline-block; */
 }
 #nameDash{
     margin-bottom: 0px;
@@ -18,5 +19,238 @@
         /* width: 300px; */
         text-align: center;
         font-size: 36px;
+    flex-basis: 33%;
+}
+.centerDis{
+    /* margin: auto; */
+    width: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+#no{
+    position: absolute;
+    /* background-color: green; */
+    align-content: center;
+    text-align: center;
+    /* width: 50%; */
+    /* width: ; */
+    /* transform: translateX(-50%); */
+    height: 500px;
+    width: 400px;
+    margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+    /* flex-basis: 9.5%; */
+    background-color: white;
+    border-radius: 25px;
+    /* padding-top: 10px; */
+    font-family: 'Raleway', sans-serif;
+    border: 2px solid black;
+
+
+}
+.open-button{
+    border-radius: 10px;
+
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(71, 218, 255);
+    border:rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(0, 0, 0);
+    padding: 12px;
+    box-shadow: 0 0 20px  rgb(0, 0, 0, 0.3);
+    margin: 0px 5px;
+}
+
+.thing{
+    /* position: relative; */
+    /* transform: translateX(450%)translateY(-150%); */
+    font-size: 25px;
+    cursor: default;
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px;
+    /* float: right; */
+
+}
+
+#newTitle{
+    border-color: rgba(0, 0, 0, 0.9);
+
+}
+#newText{
+    width: 320px !important;
+    height: 14.5em;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0%;
+    padding-top: 10px;
+    border-color: rgba(0, 0, 0, 0.9);
+    word-wrap: break-word;
+
+    /* --fieldBorderColorActive: black; */
+
+}
+  @media only screen and (max-width: 1220px){
+    #no{
+        width: 400px;
+    }
+  }
+  @media only screen and (max-width: 910px){
+    #no{
+      /* width: 35%; */
+      /* margin: 2%; */
+    }
+  }
+  @media only screen and (max-width: 580px){
+    #no{
+      /* width: 65%; */
+      /* margin-left: 15.5%;
+      margin-right: 15.5%; */
+      position: fixed;
+      transform: translateX()
+    }
+  }
+
+  .dropdown{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+      /* background-color: rgb(75, 75, 75); */
+    /* box-shadow: 0px 10px 0px rgb(75, 75, 75), 0px 20px 0px rgb(75,75,75); */
+  }
+  .rows{
+    display: flex;
+    justify-content: space-between;
+  }
+  .halfrow{
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 33%;
+  }
+  .dropdown-content {
+    visibility: hidden;
+    display: inline-block;
+    /* float: right; */
+    /* align-self: flex-start; */
+    /* position: absolute; */
+    /* background-color: #f1f1f1; */
+    /* transform: translateY(-350%)translateX(380%); */
+    /* transform: translateX(-200%); */
+    /* min-width: 160px; */
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    margin-top: 22px;
+    z-index: 1;
+    text-align: right;
+    cursor: default;
+    /* margin-right:  */
+  }
+
+
+
+
+
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: rgba(53, 53, 53, 0.11)}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+  .thing{
+    visibility: hidden;
+}
+.postIt:hover .thing{
+      /* display: block; */
+        visibility: visible;
+    }
     
+.postIt:not(:hover) .dropdown-content{
+    visibility: hidden !important;
+    /* color: red; */
+}
+.heading{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    /* padding-left: 5%;
+    padding-right: 15%; */
+    /* height: 100px; */
+    margin: auto;
+}
+#newNoter{
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    width: 380px;
+    height: 2em;
+    border-radius: 25px;
+
+}
+
+input[type='radio']{
+    opacity: 0;
+    width: 0;
+    margin-bottom: 20px;
+    appearance: none;
+    box-shadow: none !important;
+
+}
+
+.redDot{
+  background-color: rgba(255, 95, 95, 0.541);
+}
+.orangeDot{
+    background-color: rgba(255, 158, 67, 0.596);
+}
+.greenDot{
+    background-color:rgba(78, 255, 152, 0.541);
+}
+.blueDot{
+    background-color: rgba(0, 140, 255, 0.541);
+}
+.purpleDot{
+    background-color: rgba(72, 105, 255, 0.541);
+}
+
+.radioColors{
+    width: 1px;
+    height: 1px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 0px 10px;
+    text-shadow: none;
+    
+    margin: 10px 7px;
+    /* cursor: pointer; */
+    /* display: block; */
+}
+
+input[type = "radio"]:checked + label{
+    border: 2px solid black;
 }

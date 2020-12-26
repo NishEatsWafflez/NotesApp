@@ -12,7 +12,6 @@
     <style>
        /* body {
             background-image: url("/bluebg.png");
-
         } */
         
         
@@ -28,20 +27,24 @@
     {% endblock%}
     <script>
         var b = String(document.getElementById('mytext').textContent);
-        // alert(document.getElementById('mytext').textContent)
         b = b.replace(/(?:\r\n|\r|\n)/g, '<br />');
-        // alert(b)
         document.getElementById('mytext').innerHTML = b;
     </script>
     <script>
-        var b = String(document.getElementById('previewText').textContent);
-        // alert(document.getElementById('mytext').textContent)
-        b = b.replace(/(?:\r\n|\r|\n)/g, '<br />');
+        var b = document.getElementsByClassName("separator");
+        // document.getElementsByClassName(".separator").style.background = "green";
+        // alert(document.getElementsByClassName('.separator'))
+        // alert("b.length()")
+        for (i = 0; i < b.length; i++) {
+          // alert(i)
+          b[i].innerHTML = b[i].innerHTML.replace(/(?:\r\n|\r|\n)/g, '<br />');
+        }
         // alert(b)
-        document.getElementById('previewText').innerHTML = b;
+        document.getElementsByClassName('.separator').innerHTML = b;
     </script>
     <script src = "/static/js/jquery.js"></script>
     <script src = "/static/js/scripts.js"></script>
+      <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>
 </html>
