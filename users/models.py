@@ -77,10 +77,12 @@ class User:
             "title": request.form.get('title'),
             "time": datetime.now(),
             "text": f.encrypt(request.form.get('text').encode('utf-8')),
-            "email": session['user']['email']
+            "email": session['user']['email'],
+            "color": request.form.get('color')
             }
         # print(type(request.form.get('text').encode()))
         # print(type(note['text']))
+        print(note['color'])
         notesDB.insert_one(note)
         return jsonify(note), 200
 

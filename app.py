@@ -61,9 +61,10 @@ def dashboard():
         backend=default_backend()
     )
     key = base64.urlsafe_b64encode(kdf.derive(password))
-
+    
     f = Fernet(key)
     for note in notes:
+        print(type(note))
         infos = []
         infos.append(note['title'])
         # print(type(note['text']))
@@ -71,6 +72,11 @@ def dashboard():
         # print(type(b"hi"))
         note['text'] = f.decrypt(b)
         infos.append(note['text'])
+        if ('color' in note.keys()):
+            print(note['color'])
+            infos.append(note['color'])
+        else:
+            infos.append("greenDot")
                 # print(note['text'])
         texts[note['_id']]= infos
         # print (infos.keys())

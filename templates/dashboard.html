@@ -63,7 +63,7 @@
     </p> -->
     <div class = "flexer">
         {% for count, name in notes %}
-        <div class = "card notes postIt dortnite" id = "{{count + '1'}}" mouseleave="hide(this.id+'10')">
+        <div class = "card notes postIt dortnite {{name[2]}}" id = "{{count + '1'}}"  mouseleave="hide(this.id+'10')">
             <div class = "rows">
             <h1 style="flex-basis: 33%;"> </h1>
             <h1 id = "nameDash">{{name[0]}} </h1> 
@@ -116,7 +116,7 @@
     // var color8 = 'rgba(145, 255, 19, 0.562)';
     // var colors = Array(redd, rgba(92, 255, 78, 0.541), rgba(194, 104, 255, 0.541), rgba(255, 72, 72, 0.541), rgba(72, 105, 255, 0.541));
     var colors = Array( color2,  color7, color6,  color4, color5);
-    b = document.getElementsByClassName('dortnite');
+    b = document.getElementsByClassName('dorstnite');
     for (i = 0; i < b.length; i++) {
         // alert()
         // b[i].style.backgroundColor = colors[0]
