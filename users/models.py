@@ -35,7 +35,8 @@ class User:
         return jsonify(user), 200
 
     def signup(self):
-
+        if (request.form.get('password') != request.form.get('confirm-password')):
+            return jsonify({"error": "Passwords don't match"}), 400
         user = {
             "_id": uuid.uuid4().hex,
             "name": request.form.get('name'),

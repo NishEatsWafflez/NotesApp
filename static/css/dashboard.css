@@ -226,6 +226,7 @@ text-align: center;
   visibility: hidden !important;
   /* color: red; */
 }
+
 .heading{
   display: flex;
   justify-content: space-around;

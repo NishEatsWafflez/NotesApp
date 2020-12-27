@@ -14,7 +14,7 @@
     <!-- <p> You are logged in</p> -->
 
     <!-- <button onclick="window.location.href='/user/signout'" class = "btn open-button" style = "font-family: 'Raleway', sans-serif;">Sign out</button> -->
-    <div hidden id = "no" class = "noob">
+    <div hidden id = "no" style="display: none;" class = "noob">
 
     
     <form name="new_note">
@@ -68,14 +68,15 @@
             <h1 style="flex-basis: 25%;"> </h1>
             <h1 id = "nameDash">{{name[0]}} </h1> 
             <div class = "halfrow">
-            <div id = "{{count+'110'}}" class = "dropdown-content">
+            <div id = "{{count+'110'}}" style="position: absolute; transform: translateX(-30%);" class = "dropdown-content">
                 <a class = "editNote" id = {{count}} onclick = "editNote(this.id)">Edit</a>
                 <br>
                 <a class = "viewNote" id = {{count}} onclick = "viewNote(this.id)">View</a>
                 <br>
                 <a class = "deleteNote" id = {{count}} onclick = "sendId(this.id)">DELETE</a>
             </div>
-            <span id = "{{count + '11'}}" class = "thing"onclick="openMenu(this.id+'0')">&#8942;</span>
+            <span id = "{{count + '11'}}" class = "thing"onclick="openMenu(this.id+'0', this.id)">&#8942;</span>
+            
         </div>
             </div>
             <!-- <div style="content: '\2807';" ></div> -->
@@ -125,19 +126,36 @@
     
 
 </script>
+
 <script>
-    function openMenu(idGiven){
+    function openMenu(idGiven, id){
         // alert(idGiven);
         // b = document.getElementById(idGiven);
         document.getElementById(idGiven).style.visibility = "visible";
+        document.getElementById(idGiven).style.visibility = "visible";
+        // document.getElementById(idGiven).style.position = "absolute";
+        // document.getElementById(idGiven).style.transform = "translateX(-30%)";
+
+
+        document.getElementById(id).style.color = "transparent"
     }
     window.onclick = function(event) {
     if (!event.target.matches('.thing')) {
-    //   alert("cat")
+
+    //   alert("cat");
     //   alert(event.target);
+    var dropdown = document.getElementsByClassName("thing");
+
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (i = 0; i < dropdowns.length; i++) {
-        dropdowns[i].style.visibility = "hidden";
+        // alert(document.getElementById('no').style.display)
+        if (dropdowns[i].style.visibility == "visible" && document.getElementById('no').style.display=='none'){
+            dropdowns[i].style.visibility = "hidden";
+            // alert(i)
+            // dropdowns[i].style.position = "relative";
+
+            dropdown[i].style.color = "black";
+        }
     }
     }
     }
@@ -197,13 +215,15 @@ function openForm() {
   document.getElementById("no").style.display = "inline-block";
   document.getElementById("newNoter").disabled = true;
   var remove = document.getElementsByClassName('thing');
-  
+  var removes = document.getElementsByClassName('dropdown-content');
+
     b = document.getElementsByClassName('noob');
     
     for (i = 0; i < remove.length; i++) {
         // alert()
         // b[i].style.backgroundColor = colors[0]
         remove[i].style.color = 'transparent';
+        removes[i].style.visibility = 'hidden';
     };
 
 }
