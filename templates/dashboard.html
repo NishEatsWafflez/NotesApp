@@ -3,9 +3,9 @@
 {% block content %}
 <div class = "centerDis">
     <div class = "heading">
-        <h1></h1>
-    <h1 style = "font-family: 'Raleway', sans-serif; font-size: 50px;">Welcome! Here are your notes:</h1>
-    <a style = "color: black;"href="/user/signout"><ion-icon name="log-out-outline" style="font-size: 40px; margin-top: 40px;"></ion-icon></a>
+        <h1 style="font-size: 40px; flex-basis: 33%"></h1>
+    <h1 style = "font-family: 'Raleway', sans-serif; font-size: 50px; text-align: center;flex-basis: 33%"">Dashboard</h1>
+    <a style = "color: black; flex-basis: 33%;" href="/user/signout"><ion-icon name="log-out-outline" style="font-size: 40px; margin-top: 40px;"></ion-icon></a>
 </div>
     <!-- <h1>Create new note</h1> -->
     <input type="text" id = "newNoter" placeholder="  New Note" onclick="openForm()">
@@ -18,16 +18,16 @@
 
     
     <form name="new_note">
-        <h1 style = "margin-bottom: 0px;">New Note</h1>
+        <h1 style = "margin-bottom: 0px; margin-bottom: 2px;">New Note</h1>
         <label class="field field_v1" for = "title" id = "newTitle">
-            <input class="field__input" name = "title" placeholder=" " maxlength="25" id = "newTitle" style= "font-size: 20px; text-align: center;" required>
+            <input class="field__input" name = "title" placeholder=" " maxlength="20" id = "newTitle" style= "font-size: 20px; text-align: center; width: 320px; padding-top: 0px;" required>
             <!-- <span class="field__label-wrap"> -->
               <!-- <span class="field__label" style="font-size: 20px;">Title</span> -->
             <!-- </span> -->
           </label>
           <br>
-          <label class="field field_v1" for = "title" id = "newTitle">
-            <textarea class="field__input" name = "text" placeholder=" " id = "newText" style= "font-size: 20px;" required></textarea>
+          <label class="field field_v1" for = "title" id = "newText">
+            <textarea class="field__input" name = "text" placeholder=" " id = "newText" style= "font-size: 20px; padding-top: 0px;" required></textarea>
             <!-- <span class="field__label-wrap"> -->
               <!-- <span class="field__label" style="font-size: 20px;">Title</span> -->
             <!-- </span> -->
@@ -50,7 +50,7 @@
         <label class = "radioColors purpleDot" for="purpleDot"></label>
         <br>
 
-        <input type="submit" value = "Create" class = "btn">
+        <input type="submit" value = "Create" class = "btn submit">
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
 
     
@@ -65,7 +65,7 @@
         {% for count, name in notes %}
         <div class = "card notes postIt dortnite {{name[2]}}" id = "{{count + '1'}}"  mouseleave="hide(this.id+'10')">
             <div class = "rows">
-            <h1 style="flex-basis: 33%;"> </h1>
+            <h1 style="flex-basis: 25%;"> </h1>
             <h1 id = "nameDash">{{name[0]}} </h1> 
             <div class = "halfrow">
             <div id = "{{count+'110'}}" class = "dropdown-content">
@@ -203,7 +203,7 @@ function openForm() {
     for (i = 0; i < remove.length; i++) {
         // alert()
         // b[i].style.backgroundColor = colors[0]
-        remove[i].style.display = 'none';
+        remove[i].style.color = 'transparent';
     };
 
 }
@@ -216,7 +216,7 @@ function closeForm() {
   for (i = 0; i < remove.length; i++) {
         // alert()
         // b[i].style.backgroundColor = colors[0]
-        remove[i].style.display = 'inline-block';
+        remove[i].style.color = 'black';
     };
 
 }
