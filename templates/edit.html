@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class = "main">
-    <div class = "card postIt {{note.color}}" style="height: 570px;" id = "{{note.color}}">
+<div class = "main" style="margin-top: 100px;">
+    <div class = "card postIt {{note.color}}" style="height: 570px;">
     <h1 id = "noteTitle">Note:</h1>
     <!-- <h3 id = "mytext">{{text}}</h3> -->
 
@@ -47,7 +47,7 @@
         <p class = "error">
             
         </p>
-         <input type="radio" id="redDot" name="color" value="redDot" required="required">
+         <input type="radio" id="redDot" name="color" value="redDot">
         <label class = "radioColors redDot" for="redDot" ></label>
         <input type="radio" id="orangeDot" name="color" value="orangeDot">
         <label class = "radioColors orangeDot" for="orangeDot"></label>
@@ -74,7 +74,24 @@
     function cancel(){
         window.location.href = "/dashboard"
     }
+    
     </script>
+    <script></script>
+    <!-- b = document.get -->
+    <script>
+      // alert("hi");
+    if (document.getElementsByClassName("purpleDot").length > 1){
+      document.getElementById("purpleDot").checked = true;
+    } else if (document.getElementsByClassName("greenDot").length >1){
+      document.getElementById("greenDot").checked = true;
+    }else if (document.getElementsByClassName("orangeDot").length >1){
+      document.getElementById("orangeDot").checked = true;
+    }else if (document.getElementsByClassName("redDot").length >1){
+      document.getElementById("redDot").checked = true;
+    }else{
+      document.getElementById("blueDot").checked = true;
+    }
+      </script>
 
    
 {% endblock %}
