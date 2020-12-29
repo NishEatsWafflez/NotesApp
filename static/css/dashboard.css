@@ -1,5 +1,5 @@
 #previewText{
-  height: 145px;
+  /* height: 145px; */
   max-height: 240px !important;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -34,12 +34,12 @@ border-radius: 20px;
 /* padding: 5px 10px; */
 text-align: center;
 border: 2px solid black;
-background: transparent;
+background: white;
 font-family: 'Raleway', sans-serif;
 font-size: 15px;
 margin-bottom:5px;
-
 }
+
 .submit{
 height: 42px;
 width: 100px;

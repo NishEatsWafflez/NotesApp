@@ -122,6 +122,7 @@ class User:
         edit = {
             "title": request.form.get('title'),
             "text": f.encrypt(request.form.get('text').encode('utf-8')),
+            "color": request.form.get('color')
             }
         notesDB.update_one({"_id":session['chosenNote']['_id']}, {'$set': edit})
         # print(type(request.form.get('text').encode()))

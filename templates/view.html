@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class ="main">
-    <div class = "card " id = "postIt">
+    <div class = "card postIt {{note.color}}" id = "postIt">
     <h1 id = "noteTitle">Note:</h1>
     <h1 id = "viewTitle">{{note.title}}</h1>
     <h3 id = "mytext">{{text}}</h3>
     <p>{{note.time}}</p>
-    <input type = "button" id = "cancelView" onclick = "cancel()"value = "Cancel" class = "btn">
+    <input type = "button" id = "cancelView" onclick = "cancel()"value = "Cancel" class = "btn cancel">
 </div>
 </div>
     <script>
