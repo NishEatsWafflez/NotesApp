@@ -1,0 +1,22 @@
+.center{
+    margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -60%);
+      }
+    @media only screen and (max-width: 540px){
+      .center{
+        width: 350px !important;
+          -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      height: 600px;
+      
+      }
+      #mytext{
+        width: 300px !important;
+        -webkit-line-clamp: 15;
+      }
+    }
+    
