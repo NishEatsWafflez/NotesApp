@@ -117,7 +117,8 @@ def edit():
         backend=default_backend()
     )
     key = base64.urlsafe_b64encode(kdf.derive(password))
-
+    if('color' not in session['chosenNote'].keys()):
+        session['chosenNote']['color'] = 'greenDot'
     f = Fernet(key)
     # print(type(note['text']))
     b = session['chosenNote']['text'].encode('utf-8')
@@ -141,7 +142,10 @@ def view():
         backend=default_backend()
     )
     key = base64.urlsafe_b64encode(kdf.derive(password))
-
+    if('color' not in session['chosenNote'].keys()):
+        session['chosenNote']['color'] = 'greenDot'
+      # print("no")
+    #   session['chosenNote']['color'] = 'greenDot'
     f = Fernet(key)
     # print(type(note['text']))
     b = session['chosenNote']['text'].encode('utf-8')

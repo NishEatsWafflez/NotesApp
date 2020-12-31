@@ -66,14 +66,29 @@
         <div class = "card notes postIt dortnite {{name[2]}}" id = "{{count + '1'}}"  mouseleave="hide(this.id+'10')">
             <div class = "rows">
             <h1 style="flex-basis: 25%;"> </h1>
-            <h1 id = "nameDash">{{name[0]}} </h1> 
+            <h1 style="min-height: 10%; " id = "nameDash">{{name[0]}} </h1> 
             <div class = "halfrow">
-            <div id = "{{count+'110'}}" style="position: absolute; transform: translateX(-30%);" class = "dropdown-content">
-                <a class = "editNote" id = {{count}} onclick = "editNote(this.id)">Edit</a>
-                <br>
-                <a class = "viewNote" id = {{count}} onclick = "viewNote(this.id)">View</a>
-                <br>
-                <a class = "deleteNote" id = {{count}} onclick = "sendId(this.id)">DELETE</a>
+            <div id = "{{count+'110'}}" style="position: absolute; transform: translateX(-30%); z-index: 1000;" class = "dropdown-content {{name[2]}}"> 
+                <a class = "" id = {{count}} onclick = "editNote(this.id)" >
+                  <div class= "editNote">
+                    Edit
+                    </div>
+                </a>
+
+                
+                <!-- <br> -->
+                <a class = "viewNote" id = {{count}} onclick = "viewNote(this.id)">
+                  <!-- <div class = "editNote></div> -->
+                   <div class= "editNote">
+                    View
+                    </div>
+                  </a>
+              
+                <a class = "deleteNote" id = {{count}} onclick = "sendId(this.id)">
+                  <div class= "editNote">
+                    Delete
+                    </div>
+                </a>
             </div>
             <span id = "{{count + '11'}}" class = "thing"onclick="openMenu(this.id+'0', this.id)">&#8942;</span>
             
