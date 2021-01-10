@@ -25,6 +25,15 @@ body{
   font-family: 'Raleway', sans-serif;
 
   }
+  .registerCard{
+    height: 580px;
+    width: 450px;
+  }
+  .loginButton{
+    font-size: 18px !important;
+    height: 2em !important;
+    padding: 0 !important;
+  }
   .cardReg{
       box-shadow: 0 0 20px  rgb(0, 0, 0, 0.3);
       transition: 0.3s;
@@ -187,8 +196,8 @@ body{
 
 
 .field{
-  --fieldBorderColor: rgb(121, 199, 212);
-  --fieldBorderColorActive: rgb(24, 141, 170);
+  --fieldBorderColor: rgb(117, 117, 117);
+  --fieldBorderColorActive: rgb(22, 22, 22);
 }
 
 #logHeading{
@@ -198,7 +207,7 @@ body{
   margin-bottom: 0px;
 }
 
-input[type=submit] {
+/* input[type=submit] {
             background-color: rgb(56,184,211);
             border: none;
             text-decoration: none;
@@ -206,7 +215,7 @@ input[type=submit] {
             padding: 10px 25px;
             margin: 0px 20px;
             cursor: pointer;
-}
+} */
 #logo{
   font-size: 400%;
   margin-left: auto;

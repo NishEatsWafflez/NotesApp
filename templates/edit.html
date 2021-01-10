@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class = "main" style="margin-top: 100px;">
+<div class = "main " style="margin-top: 100px;">
     <div class = "card postIt {{note.color}} center" style="height: 570px;">
-    <h1 id = "noteTitle">Note:</h1>
+    <!-- <h1 id = "noteTitle">Note:</h1> -->
     <!-- <h3 id = "mytext">{{text}}</h3> -->
 
     <!-- <form id = "no" name="edit_note">
@@ -25,7 +25,7 @@
 
     <form  id = "" name="edit_note">
         <!-- <input  type="text" name = "title" value = "{{note.title}}" required> -->
-        <label class="field field_v1" for = "title" id = "titleEdit" style="margin: 0px;">
+        <label class="field field_v1" for = "title" id = "titleEdit" style="margin-top: 40px; margin-bottom: 10px;">
             <input id = "editForm" class="field__input" name = "title" value="{{note.title}}" style="width: 350px;  font-size: 32px; font-weight: 700; text-align: center;"   required>
             <span class="field__label-wrap">
               <!-- <span class="field__label">Text</span> -->
@@ -59,7 +59,7 @@
         <label class = "radioColors purpleDot" for="purpleDot"></label>
         <br>
         <!-- <input type = "button" onclick = "cancel()"value = "Cancel" class = "btn"> -->
-        <input type="submit" value = "Create" class = "btn submit">
+        <input type="submit" value = "Save" class = "btn submit">
         <button type="button" class="btn cancel" onclick="cancel()">Close</button>
 
 

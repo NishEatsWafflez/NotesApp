@@ -38,6 +38,7 @@ background: white;
 font-family: 'Raleway', sans-serif;
 font-size: 15px;
 margin-bottom:5px;
+margin-top: 8px;
 }
 
 .submit{
@@ -54,7 +55,7 @@ color: black !important;
 font-family: 'Raleway', sans-serif;
 font-size: 15px;
 margin-bottom: 5px;
-/* margin-top: 8px; */
+margin-top: 8px;
 
 }
 #no{
@@ -159,6 +160,7 @@ text-align: center;
   display: flex;
   justify-content: space-between;
 }
+
 .halfrow{
   display: flex;
   justify-content: flex-end;
@@ -175,10 +177,14 @@ text-align: center;
   /* transform: translateX(-200%); */
   /* min-width: 160px; */
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  /* background-color: white; */
   margin-top: 22px;
   z-index: 1;
-  text-align: right;
+  box-shadow: 0 0 10px  rgb(0, 0, 0, 0.3);
+  text-align: left;
   cursor: default;
+  padding: 5px;
+  /* width: 4%; */
   /* margin-right:  */
 }
 
@@ -244,6 +250,7 @@ text-align: center;
   border-radius: 25px;
   text-align: center;
   border: 2px solid black;
+  margin-bottom: 8px;
 
 }
 

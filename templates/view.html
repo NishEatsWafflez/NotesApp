@@ -3,11 +3,11 @@
 {% block content %}
     <div class ="main">
     <div class = "card postIt {{note.color}} center" id = "postIt">
-    <h1 id = "noteTitle">Note:</h1>
-    <h1 id = "viewTitle">{{note.title}}</h1>
-    <h3 id = "mytext">{{text}}</h3>
+    <!-- <h1 id = "noteTitle">Note:</h1> -->
+    <h1 id = "noteTitle" style="margin-top: 20px; margin-bottom: 20px;">{{note.title}}</h1>
+    <h3 id = "mytext" style="height: 340px;">{{text}}</h3>
     <p>{{note.time}}</p>
-    <input type = "button" id = "cancelView" onclick = "cancel()"value = "Cancel" class = "btn cancel">
+    <input type = "button" id = "cancelView" onclick = "cancel()"value = "Cancel" class = "btn cancel" style="background: transparent;">
 </div>
 </div>
     <script>
