@@ -12,7 +12,12 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import unicodedata
+from datetime import timedelta
+import jwt
+# import datetime
+from app import secret_key
 
+# app.secret_key = b'\xc5\x19\xb95\x91L\x9e\x83\xa5\xd5\xad)\xd0\x8f\x02w'
 
 class User:
 
@@ -23,16 +28,21 @@ class User:
 
         if user and pbkdf2_sha256.verify(request.form.get('password'), user['password']):
             session['key'] = request.form.get('password')
-            return self.start_session(user)
-           
+            token = jwt.encode({
+                'user': user,
+                'exp': datetime.utcnow() + timedelta(seconds=60)
+            }, secret_key)
+            return self.start_session(user, token)
+        print("could not start session")
         return jsonify({"error": "Invalid login credentials"}), 401
 
-    def start_session(self, user):
+    def start_session(self, user, token):
         del user['password']
         session['logged_in']=True
         session['chosenNote'] = ""
         session['user'] = user
-        return jsonify(user), 200
+        print(token)
+        return jsonify({'token': token.decode('utf-8')})
 
     def signup(self):
         if (request.form.get('password') != request.form.get('confirm-password')):
@@ -51,7 +61,11 @@ class User:
 
         if records.insert_one(user):
             return self.start_session(user)
-
+        token = jwt.encode({
+                'user': user,
+                'exp': datetime.utcnow() + timedelta(seconds=60)
+            }, secret_key)
+        return self.start_session(user, token)
         return jsonify({"error": "Something went wrong, please try again"}), 400
     
     def signout(self):

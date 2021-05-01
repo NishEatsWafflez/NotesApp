@@ -1,4 +1,4 @@
-
+var token;  //initially declare token variable
 $("form[name=signup_form").submit(function(e){
     // console.log("nut")
 
@@ -11,8 +11,10 @@ $("form[name=signup_form").submit(function(e){
         data: data,
         dataType: "json",
         success: function(resp){
-            window.location.href = "/dashboard/";
-
+            token = resp[token];
+            // console.log("---------------------------------------------------------");
+            // console.log(token);
+            window.location.href = "/dashboard/?token="+resp['token'];
         },
         error: function(resp){
             // console.log($error.text)
@@ -35,7 +37,14 @@ $("form[name=login_form").submit(function(e){
         data: data,
         dataType: "json",
         success: function(resp){
-            window.location.href = "/dashboard/";
+            // alert("yeet");
+            // alert("no");
+            // alert(resp['token']);
+            // alert(typeof resp['token']);
+            token = resp['token'];   //assign token variable to actual value
+            // alert("to");
+            // console.log("---------------------------------------------------------");
+            window.location.href = "/dashboard/?token="+resp['token'];
 
         },
         error: function(resp){
@@ -49,7 +58,7 @@ $("form[name=login_form").submit(function(e){
 
 $("form[name=new_note").submit(function(e){
     // console.log("nut")
-
+    alert(token);
     var $form = $(this);
     var $error = $form.find(".error");
     var data = $form.serialize();
@@ -59,7 +68,8 @@ $("form[name=new_note").submit(function(e){
         data: data,
         dataType: "json",
         success: function(resp){
-            window.location.href = "/dashboard/";
+            alert(token);   //attempt to access new value of token
+            window.location.href = "/dashboard/?token=" + token;
 
         },
         error: function(resp){
@@ -82,7 +92,7 @@ $("form[name=edit_note").submit(function(e){
         data: data,
         dataType: "json",
         success: function(resp){
-            window.location.href = "/dashboard/";
+            window.location.href = "/dashboard/" + token;
 
         },
         error: function(resp){

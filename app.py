@@ -1,8 +1,9 @@
-from flask import Flask, render_template, redirect, session
+from flask import Flask, render_template, jsonify, request, redirect, session
 from functools import wraps
 # from bson.objectid import ObjectId
 # import dns
 import os
+import jwt
 import pymongo
 from pymongo import MongoClient
 import base64
@@ -18,6 +19,7 @@ from dotenv import load_dotenv, find_dotenv
 
 app = Flask(__name__)
 app.secret_key = b'\xc5\x19\xb95\x91L\x9e\x83\xa5\xd5\xad)\xd0\x8f\x02w'
+secret_key = b'\xc5\x19\xb95\x91L\x9e\x83\xa5\xd5\xad)\xd0\x8f\x02w'
 texts = {}
 info = {}
 # load_dotenv(find_dotenv())
@@ -30,6 +32,21 @@ print(records)
 notesDB = db.notes_db
 user = records.find_one({'email': 'aa'})
 print(user)
+
+def check_for_token(func):
+    @wraps(func)
+    def wrapped(*args, **kwargs):
+        token = request.args.get('token')
+        print(request.args)
+        print(token)
+        if not token:
+            return jsonify({'message': 'Missing token'})
+        try:
+            data = jwt.decode(token, app.secret_key)
+        except:
+            return jsonify ({'message': 'Invalid Token'})
+        return func(*args, **kwargs)
+    return wrapped
 
 def login_required(f):
     @wraps(f)
@@ -48,7 +65,7 @@ def home():
     return render_template('login.html')
 
 @app.route('/dashboard/')
-@login_required
+@check_for_token
 def dashboard():
     notes = notesDB.find({'email':session['user']['email']})
     password = session['key'].encode()  # Convert to type bytes
@@ -105,7 +122,7 @@ def register():
     return render_template('home.html')
 
 @app.route('/edit/')
-@login_required
+@check_for_token
 def edit():
     password = session['key'].encode()  # Convert to type bytes
     salt = b'\xb7\xe799d\x8864\xf9\xa4P\xea\x15\xb3\x8e)'
@@ -130,7 +147,7 @@ def edit():
     return render_template('edit.html', note = session['chosenNote'], text = text)
 
 @app.route('/view/')
-@login_required
+@check_for_token
 def view():
     password = session['key'].encode()  # Convert to type bytes
     salt = b'\xb7\xe799d\x8864\xf9\xa4P\xea\x15\xb3\x8e)'
