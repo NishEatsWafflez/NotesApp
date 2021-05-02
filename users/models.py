@@ -60,12 +60,13 @@ class User:
             return jsonify({"error": "Email already in use, please try a different email."}), 400
 
         if records.insert_one(user):
-            return self.start_session(user)
-        token = jwt.encode({
+            token = jwt.encode({
                 'user': user,
                 'exp': datetime.utcnow() + timedelta(seconds=60)
             }, secret_key)
-        return self.start_session(user, token)
+            print('---------------------------------------------------')
+            print(token)
+            return self.start_session(user, token)  
         return jsonify({"error": "Something went wrong, please try again"}), 400
     
     def signout(self):
