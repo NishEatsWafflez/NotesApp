@@ -51,11 +51,11 @@ $("form[name=login_form").submit(function(e){
             // document.cookie="";
             document.cookie = "token=John Smith; path = /";
             // alert(document.cookie);
-            // alert(document.cookie);
             document.cookie = "token=" + resp['token'];
-            var token = document.cookie;   //assign token variable to actual value
+            alert(document.cookie);
+            var token = document.cookie.slice(8);   //assign token variable to actual value
             // document.cookie = "path = /";
-            // alert(token);
+            alert(token);
             // alert("no");
             // alert(resp['token']);
             // console.log("---------------------------------------------------------");
@@ -84,7 +84,7 @@ $("form[name=new_note").submit(function(e){
         dataType: "json",
         success: function(resp){
             alert("document.cookie");
-            var token = document.cookie;
+            var token = document.cookie.slice(8);
             alert(token);   //attempt to access new value of token
             window.location.href = "/dashboard/?token=" + token;
 

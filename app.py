@@ -38,7 +38,7 @@ def check_for_token(func):
     def wrapped(*args, **kwargs):
         token = request.args.get('token')
         print(request.args)
-        print(token)
+        # print(token)
         if not token:
             return jsonify({'message': 'Missing token'})
         try:
